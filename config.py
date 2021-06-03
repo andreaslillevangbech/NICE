@@ -1,11 +1,11 @@
 cfg = {
   'MODEL_SAVE_PATH': './saved_models/',
 
-  'USE_CUDA': True,
+  'USE_CUDA': False,
 
   'TRAIN_BATCH_SIZE': 256,
 
-  'TRAIN_EPOCHS': 75,
+  'TRAIN_EPOCHS': 10,
 
   'NUM_COUPLING_LAYERS': 4,
 

@@ -57,8 +57,8 @@ class ScalingLayer(nn.Module):
 
 class LogisticDistribution(Distribution):
   def __init__(self):
-    super().__init__()
-
+    super().__init__(validate_args=False)
+    
   def log_prob(self, x):
     return -(F.softplus(x) + F.softplus(-x))
 

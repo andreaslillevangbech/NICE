@@ -22,7 +22,7 @@ model.train()
 
 opt = optim.Adam(model.parameters())
 
-for i in range(cfg['TRAIN_EPOCHS']):
+for epoch in range(cfg['TRAIN_EPOCHS']):
   mean_likelihood = 0.0
   num_minibatches = 0
 
@@ -31,6 +31,7 @@ for i in range(cfg['TRAIN_EPOCHS']):
       if cfg['USE_CUDA']:
         x = x.cuda()
 
+      # TODO: Find a better rescaling that this shit
       x = torch.clamp(x, 0, 1)
 
       z, likelihood = model(x)
@@ -44,9 +45,9 @@ for i in range(cfg['TRAIN_EPOCHS']):
       num_minibatches += 1
 
   mean_likelihood /= num_minibatches
-  print('Epoch {} completed. Log Likelihood: {}'.format(i, mean_likelihood))
+  print('Epoch {} completed. Log Likelihood: {}'.format(epoch, mean_likelihood))
 
-  if epoch % 5 == 0:
+  if epoch % 2 == 0:
     save_path = os.path.join(cfg['MODEL_SAVE_PATH'], '{}.pt'.format(epoch))
     torch.save(model.state_dict(), save_path)
 

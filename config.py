@@ -5,7 +5,9 @@ cfg = {
 
   'TRAIN_BATCH_SIZE': 256,
 
-  'TRAIN_EPOCHS': 10,
+  'TEST_BATCH_SIZE': 1000,
+
+  'TRAIN_EPOCHS': 30,
 
   'NUM_COUPLING_LAYERS': 4,
 

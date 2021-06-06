@@ -49,7 +49,7 @@ class NICE(nn.Module):
     return x
 
   def sample(self, num_samples):
-    z = self.prior.sample([num_samples, self.data_dim]).view(self.samples, self.data_dim)
+    z = self.prior.sample([num_samples, self.data_dim]).view(num_samples, self.data_dim)
     return self.f_inverse(z)
 
   def _get_mask(self, dim, orientation=True):
